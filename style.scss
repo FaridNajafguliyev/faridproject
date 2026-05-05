@@ -99,35 +99,46 @@ body {
 // ================= MOBILE =================
 @media (max-width: 768px) {
   .nav {
-    padding: 15px 20px;
+    position: relative;
   }
 
   .nav__center {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #0f172a;
-    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    right: -100%; // 🔥 gizli vəziyyət
+    width: 30%; // panel width
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease;
+    z-index: 1500;
+  }
+
+  .nav__center.active {
+    right: 0; // 🔥 sağdan çıxır
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 30px;
     text-align: center;
+  }
 
-    &.active {
-      display: block;
-    }
-
-    .nav__list {
-      flex-direction: column;
-      gap: 20px;
-    }
+  .nav__link {
+    font-size: 20px;
   }
 
   .menu-toggle {
-    display: block;
+    display: block !important;
     position: absolute;
     right: 20px;
     top: 20px;
-    z-index: 1000;
+    font-size: 28px;
+    color: white;
+    z-index: 2000;
+    cursor: pointer;
   }
 
   .nav__right {
