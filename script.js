@@ -27,3 +27,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       .scrollIntoView({ behavior: 'smooth' });
   });
 });
+
+const toggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav__center");
+
+if (toggle && navMenu) {
+  toggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+}
+
+document.querySelectorAll(".nav__link").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+});
